@@ -26,10 +26,10 @@ static __init int modinit(void)
 	e.data = 5;
         INIT_LIST_HEAD(&e.list);
 
-	list_add(&mylist, &a.list);
-	list_add(&mylist, &b.list);
-	list_add(&mylist, &c.list);
-	list_add(&mylist, &d.list);
+	list_add(&a.list, &mylist);
+	list_add(&b.list, &mylist);
+	list_add(&c.list, &mylist);
+	list_add(&d.list, &mylist);
 
 	printk(KERN_INFO"Hello World!\n");
 	return 0;
