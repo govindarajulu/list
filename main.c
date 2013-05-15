@@ -1,8 +1,36 @@
 #include <linux/module.h>
 #include <linux/kernel.h>
-
+struct mylist{
+	int data;
+	struct list_head list;
+};
+struct list_head mylist;
 static __init int modinit(void)
 {
+	struct mylist a, b, c, d, e;
+
+	INIT_LIST_HEAD(&mylist);
+
+	a.data = 1;
+	INIT_LIST_HEAD(&a.list);
+
+        b.data = 2;
+        INIT_LIST_HEAD(&b.list);
+
+	c.data = 3;
+        INIT_LIST_HEAD(&b.list);
+
+	d.data = 4;
+        INIT_LIST_HEAD(&d.list);
+
+	e.data = 5;
+        INIT_LIST_HEAD(&e.list);
+
+	list_add(&mylist, &a.list);
+	list_add(&mylist, &b.list);
+	list_add(&mylist, &c.list);
+	list_add(&mylist, &d.list);
+
 	printk(KERN_INFO"Hello World!\n");
 	return 0;
 }
